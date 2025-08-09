@@ -187,7 +187,11 @@ void GUI::renderMainPanel() {
 
         if (ImGui::Button("Paste")) {
             if (const char* clipboard = ImGui::GetClipboardText()) {
-				strncpy(key, clipboard, 36);            
+				#ifdef GEODE_IS_WINDOWS
+					strncpy_s(key, clipboard, 36);
+				#else
+					strncpy(key, clipboard, 36);
+				#endif
 			}
         }
 
