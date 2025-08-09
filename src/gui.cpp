@@ -187,8 +187,8 @@ void GUI::renderMainPanel() {
 
         if (ImGui::Button("Paste")) {
             if (const char* clipboard = ImGui::GetClipboardText()) {
-                memset(key, clipboard, 36);
-            }
+				strncpy(key, clipboard, 36);            
+			}
         }
 
         ImGui::SameLine();
